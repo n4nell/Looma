@@ -1,6 +1,49 @@
+@import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html, body {
+    min-width: 1024px;
+    overflow-x: auto;
+  }
+  body {
+    font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+    background-color: #FFF9F2;
+    color: #302541;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Baloo 2', system-ui, sans-serif;
+  }
+}
+
+.font-display {
+  font-family: 'Baloo 2', system-ui, sans-serif;
+}
+
+/* Keep compact controls readable on phones while preserving the existing layout. */
+.text-xs { font-size: 0.875rem; line-height: 1.35rem; }
+.text-\[9px\], .text-\[10px\], .text-\[11px\] { font-size: 0.8125rem; line-height: 1.2rem; }
+
+button, input, textarea, select {
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+}
+
+:root {
+  --looma-ink: #302541;
+  --looma-paper: #FFF9F2;
+  --looma-primary: #FF385C;
+  --looma-sunshine: #FFD978;
+  --looma-mint: #A8D8B9;
+  --looma-turquoise: #A8D8B9;
+  --looma-peach: #FFE2D8;
+}
+
 :root {
   --font-display:
-    Spline Sans, Inter, ui-sans-serif, system-ui, sans-serif, Apple Color Emoji, Segoe UI Emoji,
+    'Plus Jakarta Sans', Inter, ui-sans-serif, system-ui, sans-serif, Apple Color Emoji, Segoe UI Emoji,
     Segoe UI Symbol, Noto Color Emoji;
   --font-mono:
     ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, Liberation Mono, Courier New, monospace;
