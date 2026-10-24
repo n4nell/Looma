@@ -9,7 +9,7 @@ Pernah pengin gambar sesuatu, nulis cerita, atau bikin sesuatu cuma karena lagi 
 
 Looma is your little creative playground — tempat buat menuangkan ide, mencoba hal baru, dan bersenang-senang dengan imajinasimu sendiri. Mau bikin sesuatu yang keren, lucu, random, atau bahkan *weird in a good way*? We love that here!
 
-Nggak harus punya ide besar. Nggak harus jago. Nggak harus perfect.
+Ngga harus punya ide besar. Ngga harus jago. Ngga harus perfect.
 
 **just show up, get creative, and see what happens.** 🪄
 
@@ -23,7 +23,7 @@ Pengen nyusun ide atau coba tantangan Truth or Dare? Go for it!
 
 Di Looma, kamu bisa menulis cerita, menggambar, menyusun papan ide, sampai mencoba berbagai tantangan seru.
 
-Nggak ada aturan soal harus bikin apa. Nggak ada standar harus sebagus apa.
+Ngga ada aturan soal harus bikin apa. Ngga ada standar harus sebagus apa.
 
 **your imagination, your rules.** 🌈
 
