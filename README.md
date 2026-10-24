@@ -1,56 +1,103 @@
-# Welcome to your Expo app 👋
+# Looma
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+Looma adalah aplikasi kreatif untuk membuat dan membagikan karya, menemukan kreator lain, dan ikut tantangan harian. Aplikasi dibuat dengan Expo dan React Native, dengan backend FastAPI serta database SQL.
 
-## Get started
+## Fitur
 
-1. Install dependencies
+- Feed karya yang juga terhubung dengan tab unggahan di profil.
+- Studio untuk menulis, menggambar, membuat papan ide, dan mengerjakan tantangan Truth or Dare.
+- Draf yang dapat dibuka kembali, dilanjutkan, lalu diposting.
+- Profil kreator, pencarian dan saran kreator dari database, serta leaderboard.
+- Like, simpan, komentar, balasan, dan pin komentar oleh pemilik postingan.
+- Antarmuka bahasa Indonesia dan Inggris.
 
-   ```bash
-   npm install
-   ```
+## Teknologi
 
-2. Start the app
+- Expo SDK 57, Expo Router, React Native 0.86, dan React 19.
+- React Native Web dan NativeWind untuk antarmuka web.
+- FastAPI, SQLAlchemy, dan MySQL atau SQLite untuk backend dan penyimpanan data.
 
-   ```bash
-   npx expo start
-   ```
+## Menjalankan aplikasi
 
-In the output, you'll find options to open the app in a
+Pastikan Node.js dan Python tersedia.
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
-
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
-
-## Get a fresh project
-
-When you're ready, run:
+### 1. Pasang dependensi aplikasi
 
 ```bash
-npm run reset-project
+npm ci
 ```
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+### 2. Pasang dependensi backend
 
-### Other setup steps
+Buat virtual environment, lalu pasang paket backend:
 
-- To set up ESLint for linting, run `npx expo lint`, or follow our guide on ["Using ESLint and Prettier"](https://docs.expo.dev/guides/using-eslint/)
-- If you'd like to set up unit testing, follow our guide on ["Unit Testing with Jest"](https://docs.expo.dev/develop/unit-testing/)
-- Learn more about the TypeScript setup in this template in our guide on ["Using TypeScript"](https://docs.expo.dev/guides/typescript/)
+```bash
+python -m venv .venv
+```
 
-## Learn more
+PowerShell:
 
-To learn more about developing your project with Expo, look at the following resources:
+```powershell
+.\.venv\Scripts\Activate.ps1
+python -m pip install -r backend/requirements.txt
+```
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+macOS atau Linux:
 
-## Join the community
+```bash
+source .venv/bin/activate
+python -m pip install -r backend/requirements.txt
+```
 
-Join our community of developers creating universal apps.
+### 3. Jalankan backend
 
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+Dari folder utama proyek:
+
+```bash
+python -m uvicorn main:app --reload --port 8001 --app-dir backend
+```
+
+Backend membuat tabel saat pertama kali dijalankan. Dokumentasi API tersedia di [http://localhost:8001/docs](http://localhost:8001/docs).
+
+### 4. Jalankan aplikasi
+
+Untuk web:
+
+```bash
+npm run web
+```
+
+Untuk development server Expo:
+
+```bash
+npm start
+```
+
+Pilih Android atau iOS dari terminal Expo, atau gunakan `npm run android` / `npm run ios`.
+
+## Database
+
+Backend mencoba menghubungkan ke MySQL terlebih dahulu. Atur environment variable berikut bila memakai MySQL:
+
+| Variable | Default |
+| --- | --- |
+| `MYSQL_USER` | `root` |
+| `MYSQL_PASSWORD` | kosong |
+| `MYSQL_HOST` | `localhost` |
+| `MYSQL_PORT` | `3306` |
+| `MYSQL_DB` | `looma` |
+
+Jika koneksi MySQL gagal, backend memakai SQLite di `backend/looma.db`. Jangan hapus file tersebut jika ingin mempertahankan data lokal.
+
+## Perintah proyek
+
+```bash
+npm run lint       # Expo lint
+npx tsc --noEmit   # TypeScript check
+```
+
+## Catatan pengembangan
+
+- File route Expo Router ada di `src/app/`; komponen dan studio ada di `src/components/`.
+- Backend ada di `backend/main.py`; daftar dependensinya ada di `backend/requirements.txt`.
+- Aplikasi saat ini memanggil API melalui `http://localhost:8001`. Untuk menguji dari perangkat fisik, alamat API perlu mengarah ke alamat jaringan komputer yang menjalankan backend.
